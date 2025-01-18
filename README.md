@@ -65,7 +65,7 @@ This elvates the card.
 ```xml
 app:cardElevation="8dp"
 ```
-We can set aspect ratio as well i.e. the ratio of width and height.
+We can set <b>aspect ratio</b> as well i.e. the ratio of width and height.
 ```xml
 app:layout_constraintDimensionRatio="2:1"
 ```
