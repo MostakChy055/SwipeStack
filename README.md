@@ -69,3 +69,14 @@ We can set <b>aspect ratio</b> as well i.e. the ratio of width and height.
 ```xml
 app:layout_constraintDimensionRatio="2:1"
 ```
+# Code went rogue
+- I was trying to add material design in my UI. But for some reason it wasn't working. Some suggestions:
+  add this to build.gradle
+  ```xml
+      implementation(libs.androidx.material)
+  ```
+  and at versions.toml
+  ```xml
+  androidx-material = { group = "com.google.android.material", name = "material", version = "1.12.0"}
+  ```
+  If if still now working then check if there are multiple views in the viewgroup or materials view. If yes then wrap it up in a linear layout. As material works with only one.
