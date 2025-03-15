@@ -1,135 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@drawable/gradient_background"
+    android:padding="16dp"
+    tools:context=".MainActivity">
 
-    <!-- Guideline for Alignment -->
+    <!-- Horizontal Guideline (Keeps its position) -->
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/verticalGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuidePercent="0.3" />
-
-    <!-- Header Title -->
-    <TextView
-        android:id="@+id/headerTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Product Details"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp" />
-
-    <!-- Product Image -->
-    <ImageView
-        android:id="@+id/productImage"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:contentDescription="Product Image"
-        android:src="@drawable/haikyuu"
-        app:layout_constraintTop_toBottomOf="@id/headerTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/verticalGuideline"
-        app:layout_constraintWidth_percent="0.3"
-        app:layout_constraintHeight_percent="0.3"
-        android:layout_marginTop="16dp" />
-
-    <!-- Product Name -->
-    <TextView
-        android:id="@+id/productName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Wireless Headphones"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="@id/productImage"
-        app:layout_constraintStart_toStartOf="@id/verticalGuideline"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="16dp" />
-
-    <!-- Price -->
-    <TextView
-        android:id="@+id/priceText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="$199.99"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@android:color/holo_red_dark"
-        app:layout_constraintTop_toBottomOf="@id/productName"
-        app:layout_constraintStart_toStartOf="@id/productName"
-        android:layout_marginTop="8dp" />
-
-    <!-- Rating -->
-    <LinearLayout
-        android:id="@+id/ratingBar"
+        android:id="@+id/guideline_horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/priceText"
-        app:layout_constraintStart_toStartOf="@id/priceText"
-        android:layout_marginTop="8dp">
+        app:layout_constraintGuide_percent="0.4" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_star_filled"
-            android:contentDescription="Star" />
+    <!-- Logo (More proportionally placed) -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:src="@drawable/haikyuu"
+        android:contentDescription="@string/app_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp" />
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_star_filled"
-            android:contentDescription="Star" />
+    <!-- Card for Login Form (More rounded & stylish) -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/loginCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toBottomOf="@id/guideline_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintWidth_percent="0.85"
+        android:layout_marginTop="20dp">
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_star_filled"
-            android:contentDescription="Star" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_star_filled"
-            android:contentDescription="Star" />
+            <!-- Email Field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/emailInputLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Email"
+                app:endIconMode="clear_text">
 
-        <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/ic_star_empty"
-            android:contentDescription="Star" />
-    </LinearLayout>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Description -->
+            <!-- Password Field -->
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordInputLayout"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                app:endIconMode="password_toggle"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/passwordInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <!-- Login Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/loginButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Login"
+                android:textAllCaps="false"
+                android:backgroundTint="@color/purple_500"
+                app:cornerRadius="12dp"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Decorative Line at the Guideline (Subtle & stylish) -->
+    <View
+        android:id="@+id/decorativeLine"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:background="@color/light_gray"
+        app:layout_constraintTop_toTopOf="@id/guideline_horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Sign Up Text (Well positioned) -->
     <TextView
-        android:id="@+id/productDescription"
-        android:layout_width="0dp"
+        android:id="@+id/signUpText"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="These wireless headphones provide crystal-clear sound and a long-lasting battery for all-day use."
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintTop_toBottomOf="@id/productImage"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
-
-    <!-- Add to Cart Button -->
-    <Button
-        android:id="@+id/addToCartButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Add to Cart"
-        android:backgroundTint="@color/teal_700"
+        android:text="Don't have an account? Sign Up"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/productDescription"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/loginCard"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

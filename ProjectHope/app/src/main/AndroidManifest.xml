@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ProjectHope"
         tools:targetApi="31">
         <activity
+            android:name=".recyclerPS.AppBase"
+            android:exported="false" />
+        <activity
+            android:name=".LayoutsFeatures.Guideline"
+            android:exported="false" />
+        <activity
             android:name=".LayoutsFeatures.AspectRatio"
             android:exported="false" />
         <activity
